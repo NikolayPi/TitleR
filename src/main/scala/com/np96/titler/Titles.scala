@@ -73,7 +73,7 @@ object Titles {
 
         resp <- C
           .expect[String](GET(uri))
-          .map(s => TitleResponse(url, Title.fromHtmlString(s)).asInstanceOf[CrawlerResponse])
+          .map(s => TitleResponse(url, Title.fromHtmlString(s))): F[CrawlerResponse]
 
       } yield resp
     }.recover { case t =>
