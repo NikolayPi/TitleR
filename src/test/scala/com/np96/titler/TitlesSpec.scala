@@ -53,7 +53,6 @@ class TitlesSpec extends CatsEffectSuite {
     Request[IO](Method.GET, uri"/titles").withEntity[String]("""{"wrong": "json"}""")
 
   test("Titles handles missing title correctly") {
-
     assertIO(
       runTest("http://localhost:8099/missing"),
       """[{"TitleResponse":{"url":"http://localhost:8099/missing","result":{"title":""}}}]"""
