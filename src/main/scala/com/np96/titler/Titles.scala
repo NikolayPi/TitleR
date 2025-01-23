@@ -35,7 +35,7 @@ object Titles {
 
   sealed trait CrawlerResponse
 
-  final case class TitleResponse(url: String, title: Title) extends CrawlerResponse
+  final case class TitleResponse(url: String, result: Title) extends CrawlerResponse
   final case class CrawlerError(url: String, error: String) extends CrawlerResponse
 
   implicit val titleResponseEncoder: Encoder[TitleResponse] = deriveEncoder[TitleResponse]

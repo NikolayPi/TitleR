@@ -56,42 +56,42 @@ class TitlesSpec extends CatsEffectSuite {
 
     assertIO(
       runTest("http://localhost:8099/missing"),
-      """[{"TitleResponse":{"url":"http://localhost:8099/missing","title":{"title":""}}}]"""
+      """[{"TitleResponse":{"url":"http://localhost:8099/missing","result":{"title":""}}}]"""
     )
   }
 
   test("Titles handles blank page correctly") {
     assertIO(
       runTest("http://localhost:8099/blank"),
-      """[{"TitleResponse":{"url":"http://localhost:8099/blank","title":{"title":""}}}]"""
+      """[{"TitleResponse":{"url":"http://localhost:8099/blank","result":{"title":""}}}]"""
     )
   }
 
   test("Titles handles empty page correctly") {
     assertIO(
       runTest("http://localhost:8099/empty"),
-      """[{"TitleResponse":{"url":"http://localhost:8099/empty","title":{"title":""}}}]"""
+      """[{"TitleResponse":{"url":"http://localhost:8099/empty","result":{"title":""}}}]"""
     )
   }
 
   test("Titles handles simple page correctly") {
     assertIO(
       runTest("http://localhost:8099/simple"),
-      """[{"TitleResponse":{"url":"http://localhost:8099/simple","title":{"title":"SomeTitle"}}}]"""
+      """[{"TitleResponse":{"url":"http://localhost:8099/simple","result":{"title":"SomeTitle"}}}]"""
     )
   }
 
   test("Titles handles corner case correctly") {
     assertIO(
       runTest("http://localhost:8099/corner-case"),
-      """[{"TitleResponse":{"url":"http://localhost:8099/corner-case","title":{"title":""}}}]"""
+      """[{"TitleResponse":{"url":"http://localhost:8099/corner-case","result":{"title":""}}}]"""
     )
   }
 
   test("Titles handles random internet page") {
     assertIO(
       runTest("https://http4s.org/"),
-      """[{"TitleResponse":{"url":"https://http4s.org/","title":{"title":"http4s"}}}]"""
+      """[{"TitleResponse":{"url":"https://http4s.org/","result":{"title":"http4s"}}}]"""
     )
   }
 
