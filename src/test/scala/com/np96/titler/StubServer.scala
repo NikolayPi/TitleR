@@ -28,6 +28,10 @@ object StubServer {
         Ok(
           "<html><head></head><body>\"We will be talking about <title> and </title>\"</body></html>"
         )
+      case GET -> Root / "broken-html" =>
+            Ok(
+              "<html><htm>/</htm>?/<head><<>><title>asdasdas</title>"
+            )
     }
     val app = routes.orNotFound
 

@@ -88,6 +88,13 @@ class TitlesSpec extends CatsEffectSuite {
     )
   }
 
+  test("Titles handles broken htmls correctly") {
+    assertIO(
+      runTest("http://localhost:8099/broken-html"),
+      """[{"TitleResponse":{"url":"http://localhost:8099/broken-html","result":{"title":""}}}]"""
+    )
+  }
+
   test("Titles handles random internet page") {
     assertIO(
       runTest("https://http4s.org/"),
